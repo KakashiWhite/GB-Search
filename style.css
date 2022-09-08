@@ -4,3 +4,8 @@
 form {
     margin-top: 10px;
 }
+@media screen and (max-width: 414px) {
+    .container{padding:5}
+    div[class^="col-"] {padding:5}
+    .row {margin:5;}
+}
