@@ -10,6 +10,11 @@ $(function(){
         }
     })
 
+    $('#gb-2007-03').on('click', function() {
+        $('#fromDatetime').val('2007-03-01')
+        $('#toDatetime').val('2007-08-31')
+    })
+
     $('#gb-2011-03').on('click', function() {
         $('#fromDatetime').val('2011-03-01')
         $('#toDatetime').val('2011-08-31')
