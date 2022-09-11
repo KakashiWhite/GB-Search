@@ -1,7 +1,7 @@
 $(function(){
     $('#searchButton').on('click', function() {
         if ($('#searchWords').val()) {
-            let searchWords = $('#searchWords').val().replace(" ", "+")
+            let searchWords = createSearchWords($('#searchWords').val())
             let searchParameterOfMinDate = createSearchParameterOfMinDate($('#fromDatetime').val())
             let searchParameterOfMaxDate = createSearchParameterOfMaxDate($('#toDatetime').val())
             let result_url = `https://www.google.com/search?q=${searchWords}&source=lnt&tbs=cdr%3A1%2Ccd${searchParameterOfMinDate}${searchParameterOfMaxDate}&tbm=`
@@ -25,6 +25,26 @@ $(function(){
         $('#toDatetime').val('2013-08-31')
     })
 })
+
+function createSearchWords(searchWords) {
+    return addYGO(searchWords).replace(" ", "+")
+}
+
+function addYGO(searchWords) {
+    const ygo = "遊戯王"
+
+    if (!searchWords.match(/¥s/) && needToAddYGO(searchWords).length) {
+        searchWords = searchWords + " " + ygo
+    }
+
+    return searchWords
+}
+
+function needToAddYGO(searchWords) {
+    let pettern = new RegExp(".*" + searchWords.split("").join("{1}.*"))
+
+    return wordsNeedToAddYGO().filter(RegExp.prototype.test, pettern)
+}
 
 function createSearchParameterOfMinDate(date) {
 
