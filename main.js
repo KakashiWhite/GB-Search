@@ -20,9 +20,9 @@ $(function(){
         $('#toDatetime').val('2011-08-31')
     })
 
-    $('#gb-2011-03').on('click', function() {
-        $('#fromDatetime').val('2011-03-01')
-        $('#toDatetime').val('2011-08-31')
+    $('#gb-madou-seiryu').on('click', function() {
+        $('#fromDatetime').val('2013-02-16')
+        $('#toDatetime').val('2013-08-31')
     })
 })
 
